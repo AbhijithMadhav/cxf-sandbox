@@ -1,0 +1,47 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+	compile 'org.slf4j:slf4j-api:1.7.14'
+	compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.5'
+	compile 'org.apache.logging.log4j:log4j-core:2.5'
+	compile 'org.apache.logging.log4j:log4j-web:2.5'
+	compile 'org.apache.logging.log4j:log4j-jcl:2.5'
+	
+	compile 'org.springframework:spring-webmvc:4.2.4.RELEASE'
+	compile 'org.springframework:spring-web:4.2.4.RELEASE'
+	
+	
+	compile "org.apache.cxf:cxf:3.0.3"
+    compile "org.apache.cxf:cxf-rt-rs-client:3.0.3"
+    compile 'org.apache.cxf:cxf-rt-frontend-jaxrs:3.0.3'
+    compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http-jetty', version: '3.0.3'
+    
+    testCompile "org.mockito:mockito-core:1.+"
+    
+    compile("javax.ws.rs:javax.ws.rs-api:2.0.1")
+    compile("org.codehaus.jra:jra:1.0-alpha-4")
+    compile("wsdl4j:wsdl4j:1.5.1")
+   
+   // JAX-RS provider to serialize/deserialize into/from json
+   compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.6.0")  
+   
+   // JAX-RS provider to serialize/deserialize into/from xml
+   // An xml provider is strictly not necessary as jax-rs already contains one to handle the xml configration file?
+   compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:2.6.0")
+   
+   // JAX-RS provider to serialize/deserialize into/from xml
+   compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-yaml-provider:2.6.0")
+ 
+	compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-smile-provider:2.6.0")    
+}

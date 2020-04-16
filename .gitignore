@@ -1,0 +1,14 @@
+build/*
+.gradle/*
+.settings/*
+.classpath
+.project
+*iml
+*ipr
+*iws
+logs*
+gradle*
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

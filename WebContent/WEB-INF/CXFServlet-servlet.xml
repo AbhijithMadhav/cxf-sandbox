@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+
+	<import resource="classpath:org/abhijith/cxf/config.xml"/>
+	
+	<import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+    
+	<jaxrs:server id="myJaxServer" address="/">
+		<jaxrs:serviceBeans>
+			<ref bean="org.abhijith.rest.cxf.EmployeeResource" />
+		</jaxrs:serviceBeans>
+		 <jaxrs:providers>
+		 	<!-- entity providers -->
+			<bean id="jsonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
+			<bean id="xmlProvider" class="com.fasterxml.jackson.jaxrs.xml.JacksonXMLProvider" />
+			<bean id="yamlProvider" class="com.fasterxml.jackson.jaxrs.yaml.JacksonYAMLProvider" />
+			<bean id="smileProvider" class="com.fasterxml.jackson.jaxrs.smile.JacksonSmileProvider" />
+			<!-- entity providers -->
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+</beans>
