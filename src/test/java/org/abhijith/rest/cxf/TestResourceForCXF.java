@@ -1,3 +1,5 @@
+package org.abhijith.rest.cxf;
+
 import java.util.Collections;
 
 import javax.ws.rs.core.MediaType;

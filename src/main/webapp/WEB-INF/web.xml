@@ -3,23 +3,12 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 
-	<display-name>cxf-sandbox</display-name>
+	<display-name>webapp-sandbox</display-name>
 
-	<!-- No Root Context as I don't have any infrastructure beans(service layer or data sources)-->
-<!-- 	<context-param>
-		<description>locations of the Spring configuration files</description>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>WEB-INF/CXFServlet-servlet.xml</param-value>
-	</context-param>
-
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>-->
-	<!--  End of Root Context -->
 	
 	<context-param>
 		<param-name>log4j.refresh.interval</param-name>
-		<param-value>120</param-value>
+		<param-value>20</param-value>
 	</context-param>
 	
 	
@@ -30,7 +19,7 @@
 		<init-param>
             <param-name>config-location</param-name>
             <param-value>
-                /WEB-INF/CXFServlet-servlet.xml
+                /WEB-INF/cxf/CXFServlet-servlet.xml
             </param-value>
         </init-param>
 		<load-on-startup>1</load-on-startup>
@@ -47,7 +36,7 @@
 		<init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>
-                /WEB-INF/SpringMVCServlet-servlet.xml
+                /WEB-INF/springmvc/SpringMVCServlet-servlet.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
@@ -62,4 +51,14 @@
 	</servlet-mapping>
 	
 	<!--  End of spring application context -->
+
+	<servlet>
+		<servlet-name>PlainServlet</servlet-name>
+		<servlet-class>org.abhijith.rest.servlet.EmployeeServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PlainServlet</servlet-name>
+		<url-pattern>/plain-servlet/*</url-pattern>
+	</servlet-mapping>
 </web-app>

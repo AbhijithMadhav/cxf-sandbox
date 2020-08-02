@@ -10,6 +10,8 @@ repositories {
     mavenCentral()
 }
 
+
+
 dependencies {
 
 	compile 'org.slf4j:slf4j-api:1.7.14'
@@ -26,8 +28,9 @@ dependencies {
     compile "org.apache.cxf:cxf-rt-rs-client:3.0.3"
     compile 'org.apache.cxf:cxf-rt-frontend-jaxrs:3.0.3'
     compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http-jetty', version: '3.0.3'
-    
-    testCompile "org.mockito:mockito-core:1.+"
+
+    // https://mvnrepository.com/artifact/org.mockito/mockito-all
+    compile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
     
     compile("javax.ws.rs:javax.ws.rs-api:2.0.1")
     compile("org.codehaus.jra:jra:1.0-alpha-4")
@@ -43,5 +46,9 @@ dependencies {
    // JAX-RS provider to serialize/deserialize into/from xml
    compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-yaml-provider:2.6.0")
  
-	compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-smile-provider:2.6.0")    
+	compile("com.fasterxml.jackson.jaxrs:jackson-jaxrs-smile-provider:2.6.0")
+
+    // https://mvnrepository.com/artifact/junit/junit
+    testCompile group: 'junit', name: 'junit', version: '4.13'
+
 }

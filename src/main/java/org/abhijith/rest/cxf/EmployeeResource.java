@@ -47,7 +47,7 @@ public class EmployeeResource {
 			@QueryParam("name") String name,
 			@DefaultValue("permanent") @QueryParam("type") String type, 
 			@QueryParam("department") List<String> departments) {
-		LOGGER.debug("IN HERE : {}");
+		LOGGER.debug("IN HERE : {}", name);
 		return new Employee(name, type, departments);
 	}
 	

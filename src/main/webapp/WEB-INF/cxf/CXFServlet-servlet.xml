@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
 	http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
 
-	<import resource="classpath:org/abhijith/cxf/config.xml"/>
+	<import resource="classpath:cxf/config.xml"/>
 	
 	<import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
-    
+
+	<bean class="org.abhijith.rest.cxf.Config" />
+
+	<bean id="employeeResource" class="org.abhijith.rest.cxf.EmployeeResource" />
 	<jaxrs:server id="myJaxServer" address="/">
 		<jaxrs:serviceBeans>
-			<ref bean="org.abhijith.rest.cxf.EmployeeResource" />
+			<ref bean="employeeResource" />
 		</jaxrs:serviceBeans>
 		 <jaxrs:providers>
 		 	<!-- entity providers -->
